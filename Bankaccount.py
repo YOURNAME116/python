@@ -7,13 +7,13 @@ class BankAccount:
             return("you cannot withdraw the amount")
         else:
             self.balance=self.balance-self.amount
-            return (f"you have withdraw amount RS.{self.amount} Now, your current balace is RS.{self.balance}")
+            return (f"Dear {self.owner}, \n you have withdraw amount RS.{self.amount} Now, your current balace is RS.{self.balance}")
     def Deposit(self,DepositAmount):
         self.amount=DepositAmount
         self.balance = self.balance + self.amount
-        return (f"You have deposited RS.{self.amount} Now, your current balance is RS.{self.balance} ")
+        return (f"Dear {self.owner}, \nYou have deposited RS.{self.amount} Now, your current balance is RS.{self.balance} ")
     def Current_balance(self):
-        return(f"Your total balance is RS.{self.balance}")
+        return(f"Dear {self.owner}, \nYour total balance is RS.{self.balance}")
 
 if __name__ == '__main__':
     person1=BankAccount()
