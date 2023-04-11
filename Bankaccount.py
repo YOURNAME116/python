@@ -1,6 +1,6 @@
 class BankAccount:
     balance = 0
-    owner = "Saswat Pandey"
+    owner = "saswat pandey"
 
     def withdraw(self, amount):
         if self.balance < amount:
