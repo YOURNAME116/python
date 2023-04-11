@@ -1,24 +1,47 @@
 class BankAccount:
-    balance=0
-    owner="utshav Adhikari"
-    def WithDrwal(self,WithdrawlAmount):
-        self.amount=WithdrawlAmount
-        if self.balance < self.amount:
-            return("you cannot withdraw the amount")
+    balance = 0
+    owner = "Saswat Pandey"
+
+    def withdraw(self, amount):
+        if self.balance < amount:
+            return f"Dear {self.owner}You cannot withdraw {amount} due to insufficient balance. Your current balance is Rs.{self.balance}."
         else:
-            self.balance=self.balance-self.amount
-            return (f"Dear {self.owner}, \n you have withdraw amount RS.{self.amount} Now, your current balace is RS.{self.balance}")
-    def Deposit(self,DepositAmount):
-        self.amount=DepositAmount
-        self.balance = self.balance + self.amount
-        return (f"Dear {self.owner}, \nYou have deposited RS.{self.amount} Now, your current balance is RS.{self.balance} ")
-    def Current_balance(self):
-        return(f"Dear {self.owner}, \nYour total balance is RS.{self.balance}")
+            self.balance -= amount
+            return f"Dear {self.owner}, you have withdrawn Rs.{amount}. Your current balance is Rs.{self.balance}."
+
+    def deposit(self, amount):
+        self.balance += amount
+        return f"Dear {self.owner}, you have deposited Rs.{amount}. Your current balance is Rs.{self.balance}."
+
+    def current_balance(self):
+        return f"Dear {self.owner}, your total balance is Rs.{self.balance}."
+
 
 if __name__ == '__main__':
-    person1=BankAccount()
-    
-    print(person1.Deposit(1000))
-    print(person1.WithDrwal(500))
-    print(person1.Deposit(39))
-    print(person1.Current_balance())
+    person1 = BankAccount()
+
+    while True:
+        try:
+            value = int(input("Choose what you want to do\n1. Withdraw\n2. Deposit\n3. Show current balance\n4. Exit\n"))
+
+            if value == 1:
+                amount = int(input("Enter the amount you want to withdraw: "))
+                print(person1.withdraw(amount))
+
+            elif value == 2:
+                amount = int(input("Enter the amount you want to deposit: "))
+                print(person1.deposit(amount))
+
+            elif value == 3:
+                print(person1.current_balance())
+
+            elif value == 4:
+                print("Thank you for banking with us.")
+                break
+
+            else:
+                print("Invalid input. Please try again.")
+
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+
